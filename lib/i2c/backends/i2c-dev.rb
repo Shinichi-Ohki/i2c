@@ -43,6 +43,13 @@ module I2C
       ret = @device.sysread(size)
       return ret
     end
+  
+    # This method sends only read command. If you need to send write
+    # command before read command, you use 'read' method.
+    def read_without_write(address, size)
+      ret = @device.sysread(size)
+      return ret
+    end
 
     private
     def initialize(device_path)
